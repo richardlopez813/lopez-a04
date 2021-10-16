@@ -1,0 +1,16 @@
+
+R
+java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úýÿÿÿÿ8„õæ¶È/
+E
+java:S1128"/Remove this unused import 'java.nio.file.Path'.(×²êÂ
+M
+java:S1128"0Remove this unused import 'java.nio.file.Paths'.(áè°¯8…õæ¶È/
+R
+java:S1128"0Remove this unused import 'java.util.Formatter'.(±¤ðÃùÿÿÿÿ8†õæ¶È/
+_
+java:S1128	"=Remove this unused import 'java.util.NoSuchElementException'.(®“ÿéúÿÿÿÿ8†õæ¶È/
+P
+java:S1128
+".Remove this unused import 'java.util.Scanner'.(ÒÜÅ¸úÿÿÿÿ8†õæ¶È/
+‡
+java:S1319"eThe type of "names" should be an interface such as "List" rather than the implementation "ArrayList".(ÉÎ©‡þÿÿÿÿ8²ÓÕ·È/
