@@ -1,0 +1,13 @@
+
+f
+java:S1128"QRemove this unnecessary import: java.lang classes are always implicitly imported.(–çÀ/
+U
+java:S1128":Remove this unused import 'java.io.FileNotFoundException'.(·î™ùÿÿÿÿ
+K
+java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ
+F
+java:S1128"0Remove this unused import 'java.nio.file.Paths'.(áè°¯
+‹
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‡Ê‰ùÿÿÿÿ
+€
+java:S1319"eThe type of "names" should be an interface such as "List" rather than the implementation "ArrayList".(‡Ê‰ùÿÿÿÿ
