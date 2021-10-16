@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="baseline.Solution42Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-16T18:20:55" hostname="EMS-THINKPAD" time="0.027">
+  <properties/>
+  <testcase name="test_data_parser()" classname="baseline.Solution42Test" time="0.027"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
