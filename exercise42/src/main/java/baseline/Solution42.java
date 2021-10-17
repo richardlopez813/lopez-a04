@@ -1,3 +1,7 @@
+/*
+ *  UCF COP3330 Fall 2021 Assignment 4 Solutions
+ *  Copyright 2021 Richard Lopez
+ */
 package baseline;
 
 import java.io.FileNotFoundException;
@@ -19,7 +23,7 @@ public class Solution42 {
         System.out.println("------------------------------");
 
         //open input text and scan info into arraylist
-        try(Scanner input = new Scanner(Paths.get("exercise42_input.txt"))){
+        try(Scanner input = new Scanner(Paths.get("data/exercise42_input.txt"))){
             while(input.hasNext()){
                 nameSalary.add(input.nextLine());
             }
