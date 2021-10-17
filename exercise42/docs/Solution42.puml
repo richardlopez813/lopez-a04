@@ -1,0 +1,12 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Solution42{
++ArrayList<String> data
++String[][] twoDarrayOfstring
+
++{static} {method} void main()
+
++{method} String[][] dataParser(): String[][] outputArray
+}
+@enduml
