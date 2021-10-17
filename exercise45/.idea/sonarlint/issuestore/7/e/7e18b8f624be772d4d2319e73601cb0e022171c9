@@ -1,10 +1,0 @@
-
-m
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(òá–İıÿÿÿÿ
-H
-java:S1481"-Remove this unused "sentence" local variable.(øíÍÄùÿÿÿÿ
-V	java:S125%"<This block of commented-out lines of code should be removed.(ÅÑ®ÿıÿÿÿÿ
-E
-java:S1128"/Remove this unused import 'java.nio.file.Path'.(×²êÂ
-t
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(‘£ÅŠüÿÿÿÿ

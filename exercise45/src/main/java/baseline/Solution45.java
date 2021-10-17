@@ -1,3 +1,7 @@
+/*
+ *  UCF COP3330 Fall 2021 Assignment 4 Solutions
+ *  Copyright 2021 Richard Lopez
+ */
 package baseline;
 
 import java.io.FileNotFoundException;
@@ -21,80 +25,65 @@ public class Solution45 {
         Solution45 sol1 = new Solution45();
 
         ArrayList<String> text = new ArrayList<String>();
-        String sentence = "";
-        String[][] arrOfstr = new String[text.size()][];
+        String fileName = "";
+        String[][] arrOfstr = new String[3][15];
 
 
-        try(Scanner input = new Scanner(Paths.get("exercise45_input.txt"))){
-            while(input.hasNext()){
+        try (Scanner input = new Scanner(Paths.get("data/exercise45_input.txt"))) {
+            while (input.hasNext()) {
                 text.add(input.nextLine());
             }
-        }
-        catch(IOException | NoSuchElementException | IllegalStateException e){
+        } catch (IOException | NoSuchElementException | IllegalStateException e) {
             e.printStackTrace();
         }
-        /*
-        for(int counter = 0; counter < text.size();counter++){
-            sentence = text.get(counter);
-            arrOfstr[counter] = sentence.split(" ", 12);
-        }
-        */
-        for(int counter = 0; counter < 3; counter++){
-            System.arraycopy(sol1.dataParser(text.get(counter)), 0, arrOfstr,
-                    counter, text.get(counter).length());
-        }
 
-        for (int counter2 = 0; counter2 < 3; counter2++) {
-            for (int counter3 = 0; counter3 < arrOfstr[counter2].length; counter3++) {
-                System.out.printf("%s ", arrOfstr[counter2][counter3]);
-            }
-            System.out.print("\n");
-        }
+        System.arraycopy(sol1.dataParser(text), 0, arrOfstr,
+                0, arrOfstr.length);
 
         for (int counter2 = 0; counter2 < arrOfstr.length; counter2++) {
             for (int counter3 = 0; counter3 < arrOfstr[counter2].length; counter3++) {
-                if(arrOfstr[counter2][counter3].equals("\"utilize\"")){
+                if (arrOfstr[counter2][counter3].equals("\"utilize\"")) {
                     arrOfstr[counter2][counter3] = "\"use\"";
                 }
-                if(arrOfstr[counter2][counter3].equals("utilize")){
+                if (arrOfstr[counter2][counter3].equals("utilize")) {
                     arrOfstr[counter2][counter3] = "use";
                 }
-                if(arrOfstr[counter2][counter3].equals("utilizes")){
+                if (arrOfstr[counter2][counter3].equals("utilizes")) {
                     arrOfstr[counter2][counter3] = "uses";
                 }
             }
         }
 
-        for (int counter2 = 0; counter2 < 3; counter2++) {
-            for (int counter3 = 0; counter3 < arrOfstr[counter2].length; counter3++) {
-                System.out.printf("%s ", arrOfstr[counter2][counter3]);
-            }
-            System.out.print("\n");
-        }
-
         Scanner input = new Scanner(System.in);
         System.out.println("Enter file or directory name:");
+        fileName = input.nextLine();
 
+        sol1.fileOutput(arrOfstr, fileName);
+    }
 
-        try(Formatter output = new Formatter(input.nextLine())) {
+    public String[][] dataParser (ArrayList<String> text) {
+        //declare 2d array
+        String[][] twoDarrayOfString = new String[3][15];
+
+        //turn arraylist into 2d array
+        for (int counter = 0; counter < text.size(); counter++) {
+            String instance = text.get(counter);
+            twoDarrayOfString[counter] = instance.split(" ", 15);
+        }
+        //return array
+        return twoDarrayOfString;
+    }
+
+    public void fileOutput(String[][] arrOfstr, String fileName){
+        try (Formatter output = new Formatter(fileName)) {
             for (int counter2 = 0; counter2 < 3; counter2++) {
                 for (int counter3 = 0; counter3 < arrOfstr[counter2].length; counter3++) {
                     output.format("%s ", arrOfstr[counter2][counter3]);
                 }
                 output.format("%n");
             }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-    }
-
-    public String[] dataParser(String text){
-        //declare 2d array
-        String[] arrOfstr = new String[12];
-
-        //turn arraylist into 2d array
-        for(int counter = 0; counter < text.length();counter++){
-            arrOfstr = text.split(",", 3);
-        }
-        //return array
-        return arrOfstr;
     }
 }
