@@ -1,3 +1,7 @@
+/*
+ *  UCF COP3330 Fall 2021 Assignment 4 Solutions
+ *  Copyright 2021 Richard Lopez
+ */
 package baseline;
 
 import java.io.FileNotFoundException;
@@ -12,7 +16,7 @@ public class Solution41 {
         Solution41 sol1 = new Solution41();
 
         //declare ArrayList to hold names
-        ArrayList<String> names = new ArrayList<String>();
+        ArrayList<String> names = new ArrayList<>();
 
         //scan info from input file into ArrayList
         try(Scanner input = new Scanner(Paths.get("data/exercise41_input.txt"))){
@@ -26,7 +30,7 @@ public class Solution41 {
         }
 
         //call sort method
-        names = sol1.sort(names);
+        sol1.sort(names);
 
         //output header
         try(Formatter output = new Formatter("data/exercise41_output.txt")){
@@ -42,7 +46,7 @@ public class Solution41 {
         }
     }
 
-    public static ArrayList<String> sort(ArrayList<String> names){
+    public ArrayList<String> sort(ArrayList<String> names){
         //call collections sort method to sort list
         Collections.sort(names);
         //return ArrayList
