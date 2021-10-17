@@ -41,7 +41,7 @@ public class Solution45 {
         */
         for(int counter = 0; counter < 3; counter++){
             System.arraycopy(sol1.dataParser(text.get(counter)), 0, arrOfstr,
-                    counter, text.size());
+                    counter, text.get(counter).length());
         }
 
         for (int counter2 = 0; counter2 < 3; counter2++) {
@@ -86,16 +86,15 @@ public class Solution45 {
         }
     }
 
-    public String[][] dataParser(ArrayList<String> text){
+    public String[] dataParser(String text){
         //declare 2d array
-        String[][] twoDarrayOfString = new String[3][];
+        String[] arrOfstr = new String[12];
 
         //turn arraylist into 2d array
-        for(int counter = 0; counter < text.size();counter++){
-            String instance = text.get(counter);
-            twoDarrayOfString[counter] = instance.split(",", 3);
+        for(int counter = 0; counter < text.length();counter++){
+            arrOfstr = text.split(",", 3);
         }
         //return array
-        return twoDarrayOfString;
+        return arrOfstr;
     }
 }
