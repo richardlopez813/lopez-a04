@@ -22,13 +22,14 @@ public class Solution45 {
         //prompt for output file name
         //open file with name given (or create it if it does not exist)
         //loop through 2d array and print altered paragraph
+        //declare object of class
         Solution45 sol1 = new Solution45();
-
+        //declare ArrayList, strings, and Arrays for processing
         ArrayList<String> text = new ArrayList<String>();
         String fileName = "";
         String[][] arrOfstr = new String[3][15];
 
-
+        //scan information into ArrayList from input file
         try (Scanner input = new Scanner(Paths.get("data/exercise45_input.txt"))) {
             while (input.hasNext()) {
                 text.add(input.nextLine());
@@ -37,9 +38,11 @@ public class Solution45 {
             e.printStackTrace();
         }
 
+        //call data parser to turn arraylist into 2d array and copy it to main's array
         System.arraycopy(sol1.dataParser(text), 0, arrOfstr,
                 0, arrOfstr.length);
 
+        //loop through 2d array and replace "utilize" with "use"
         for (int counter2 = 0; counter2 < arrOfstr.length; counter2++) {
             for (int counter3 = 0; counter3 < arrOfstr[counter2].length; counter3++) {
                 if (arrOfstr[counter2][counter3].equals("\"utilize\"")) {
@@ -53,11 +56,12 @@ public class Solution45 {
                 }
             }
         }
-
+        //new scanner for output file name entry
         Scanner input = new Scanner(System.in);
         System.out.println("Enter file or directory name:");
         fileName = input.nextLine();
 
+        //call output method to take array and output it to text file in specified directory
         sol1.fileOutput(arrOfstr, fileName);
     }
 
@@ -75,13 +79,16 @@ public class Solution45 {
     }
 
     public void fileOutput(String[][] arrOfstr, String fileName){
+        //create output text file based on input
         try (Formatter output = new Formatter(fileName)) {
+            //loop through 2d array and output it to text file
             for (int counter2 = 0; counter2 < 3; counter2++) {
                 for (int counter3 = 0; counter3 < arrOfstr[counter2].length; counter3++) {
                     output.format("%s ", arrOfstr[counter2][counter3]);
                 }
                 output.format("%n");
             }
+        //catch if file not found
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
