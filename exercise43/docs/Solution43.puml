@@ -6,6 +6,7 @@ class Solution43{
 +String siteName
 +String javaScript
 +String css
++String currentDirectory
 
 +{static} {method} void main()
 

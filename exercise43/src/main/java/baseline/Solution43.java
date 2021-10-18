@@ -1,3 +1,8 @@
+/*
+ *  UCF COP3330 Fall 2021 Assignment 4 Solutions
+ *  Copyright 2021 Richard Lopez
+ */
+
 package baseline;
 
 import java.io.BufferedWriter;
@@ -48,35 +53,48 @@ public class Solution43 {
         css = scanner.nextLine();
 
         String currentDirectory = System.getProperty("user.dir");
-        currentDirectory += "\\website"+"\\"+siteName;
+        currentDirectory += "\\website\\"+siteName;
 
         File websiteFolder = new File(currentDirectory);
 
         if(websiteFolder.mkdir()){
-            System.out.printf("Created .%s\n",sol1.directoryRelavizer(websiteFolder));
+            System.out.printf("Created .%s%n",sol1.directoryRelavizer(websiteFolder));
         }
 
         File websiteHtml = new File(currentDirectory + "index.html");
-
-
-        if(websiteHtml.mkdir()){
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(websiteHtml));
-            bufferedWriter.write("<title>" + siteName  + "</title>\n");
+/*
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(websiteHtml))){
+            bufferedWriter.write("<title>" + siteName + "</title>\n");
             bufferedWriter.write("<author>" + authorName + "</author");
+            bufferedWriter.write("<html><head><title>New Page</title></head>" +
+                        "<body><p>This is Body</p></body></html>");
+
+            //System.out.printf("Created .%s%n", sol1.directoryRelavizer(websiteHtml));
             bufferedWriter.close();
-            System.out.printf("Created .%s\n",sol1.directoryRelavizer(websiteHtml));
+            }
+        catch (Exception e) {}
+*/
+        try (FileWriter fileWriter = new FileWriter(websiteHtml)){
+            fileWriter.write("<title>" + siteName + "</title>\n");
+            fileWriter.write("<author>" + authorName + "</author");
+            fileWriter.write("<html><head><title>New Page</title></head>" +
+                    "<body><p>This is Body</p></body></html>");
+            fileWriter.close();
+
+            System.out.printf("Created .%s%n", sol1.directoryRelavizer(websiteHtml));
         }
+        catch (Exception e) {}
 
         if(javaScript.equalsIgnoreCase("y")){
             File javaScriptFolder = new File(currentDirectory + "\\js");
             if(javaScriptFolder.mkdir()){
-                System.out.printf("Created .%s\n", sol1.directoryRelavizer(javaScriptFolder));
+                System.out.printf("Created .%s%n", sol1.directoryRelavizer(javaScriptFolder));
             }
         }
         if(css.equalsIgnoreCase("y")){
             File cssFolder = new File(currentDirectory + "\\css");
             if(cssFolder.mkdir()){
-                System.out.printf("Created .%s\n", sol1.directoryRelavizer(cssFolder));
+                System.out.printf("Created .%s%n", sol1.directoryRelavizer(cssFolder));
             }
         }
     }
