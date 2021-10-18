@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="baseline.Solution45Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-17T19:14:48" hostname="EMS-THINKPAD" time="0.032">
+<testsuite name="baseline.Solution45Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-18T01:54:01" hostname="EMS-THINKPAD" time="0.026">
   <properties/>
-  <testcase name="test_data_parser()" classname="baseline.Solution45Test" time="0.032"/>
+  <testcase name="test_data_parser()" classname="baseline.Solution45Test" time="0.026"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
