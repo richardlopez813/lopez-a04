@@ -14,100 +14,87 @@ import java.util.Scanner;
 
 public class Solution43 {
     public static void main(String[] args) throws IOException {
-        //declare variables
-        //prompt for site name
-        //scan site name
-        //prompt for author name
-        //scan for author name
-        //ask for javascript folder
-        //scan answer
-        //ask for CSS folder
-        //scan for answer
-        //set directory to current
-        //print path to website
-        //call html method
-        //if statement to create JavaScript folder is yes then create file
-        //if not continue and print folder not created
-        //if yes print file directory
-        //if statement to create css folder is yes then create file
-        //if not continue and print file directory
-        //if yes print file directory
+        //declaring object of class
         Solution43 sol1 = new Solution43();
 
+        //declaring scanner & string variables
         Scanner scanner = new Scanner(System.in);
         String authorName = "";
         String siteName = "";
         String javaScript = "";
         String css = "";
 
+        //prompt and scan for site name
         System.out.print("Site name: ");
         siteName = scanner.nextLine();
 
+        //prompt and scan for author name
         System.out.print("Author: ");
         authorName = scanner.nextLine();
 
+        //prompt and scan for java folder
         System.out.print("Do you want a folder for JavaScript? ");
         javaScript = scanner.nextLine();
 
+        //prompt and scan for css folder
         System.out.print("Do you want a folder for CSS? ");
         css = scanner.nextLine();
 
+        //getting current directory and adding website folder to it
         String currentDirectory = System.getProperty("user.dir");
         currentDirectory += "\\website\\"+siteName;
 
+        //create folder in directory
         File websiteFolder = new File(currentDirectory);
 
+        //if created print it was created
         if(websiteFolder.mkdir()){
-            System.out.printf("Created .%s%n",sol1.directoryRelavizer(websiteFolder));
+            sol1.printerStatement(websiteFolder);
         }
+        //create html file
+        File websiteHtml = new File(currentDirectory + "index.htm");
 
-        File websiteHtml = new File(currentDirectory + "index.html");
-/*
+        //write to html file using bufferedwritter
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(websiteHtml))){
             bufferedWriter.write("<title>" + siteName + "</title>\n");
-            bufferedWriter.write("<author>" + authorName + "</author");
-            bufferedWriter.write("<html><head><title>New Page</title></head>" +
-                        "<body><p>This is Body</p></body></html>");
-
-            //System.out.printf("Created .%s%n", sol1.directoryRelavizer(websiteHtml));
-            bufferedWriter.close();
+            bufferedWriter.write("<author>" + authorName + "</author>");
+            sol1.printerStatement(websiteHtml);
             }
-        catch (Exception e) {}
-*/
-        try (FileWriter fileWriter = new FileWriter(websiteHtml)){
-            fileWriter.write("<title>" + siteName + "</title>\n");
-            fileWriter.write("<author>" + authorName + "</author");
-            fileWriter.write("<html><head><title>New Page</title></head>" +
-                    "<body><p>This is Body</p></body></html>");
-            fileWriter.close();
 
-            System.out.printf("Created .%s%n", sol1.directoryRelavizer(websiteHtml));
-        }
-        catch (Exception e) {}
-
+        //if yes for folder make folder and if made print it has been made
         if(javaScript.equalsIgnoreCase("y")){
             File javaScriptFolder = new File(currentDirectory + "\\js");
             if(javaScriptFolder.mkdir()){
-                System.out.printf("Created .%s%n", sol1.directoryRelavizer(javaScriptFolder));
+                sol1.printerStatement(javaScriptFolder);
             }
         }
+        //if yes for folder make folder and if made print it has been made
         if(css.equalsIgnoreCase("y")){
             File cssFolder = new File(currentDirectory + "\\css");
             if(cssFolder.mkdir()){
-                System.out.printf("Created .%s%n", sol1.directoryRelavizer(cssFolder));
+                sol1.printerStatement(cssFolder);
             }
         }
     }
 
     public String directoryRelavizer(File file){
+        //declare absolute path
         File absolutePath = new File("C:\\Users\\EMS\\IdeaProjects\\assignment4\\exercise43");
 
+        //change paths to URI format
         URI path1 = file.toURI();
         URI path2 = absolutePath.toURI();
 
+        //create relative path using relativize
         URI relativePath = path2.relativize(path1);
         String path = relativePath.getPath();
 
+        //return path
         return path;
+    }
+
+    public void printerStatement(File file){
+        //print output statement
+        System.out.printf("Created .%s%n", directoryRelavizer(file));
     }
 }

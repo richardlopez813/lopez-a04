@@ -11,5 +11,7 @@ class Solution43{
 +{static} {method} void main()
 
 +{method} String directoryRelavizer(): returns relative path
+
++{method} void printerStatement()
 }
 @enduml
