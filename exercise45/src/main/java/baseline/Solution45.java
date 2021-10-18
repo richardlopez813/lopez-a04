@@ -15,13 +15,6 @@ import java.util.Scanner;
 
 public class Solution45 {
     public static void main(String[] args) throws FileNotFoundException {
-        //declare ArrayList, strings, and Arrays for processing
-        //scan information into ArrayList from input file
-        //loop through 2d array and replace "utilize" with "use"
-        //new scanner
-        //prompt for output file name
-        //open file with name given (or create it if it does not exist)
-        //loop through 2d array and print altered paragraph
         //declare object of class
         Solution45 sol1 = new Solution45();
         //declare ArrayList, strings, and Arrays for processing

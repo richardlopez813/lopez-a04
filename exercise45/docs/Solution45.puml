@@ -1,0 +1,13 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Solution43{
++ArrayList<String> text
++String fileName
++String[][] arrOfstr
+
++{static} {method} void main()
++{method} String[][] dataParser(): returns 2d array for data manipulation
++{method} void fileOutput()
+}
+@enduml
